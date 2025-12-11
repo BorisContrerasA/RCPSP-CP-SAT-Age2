@@ -1,0 +1,19 @@
+package com.aoe.planner.model;
+
+public enum TaskType {
+    CREATE_VILLAGER,
+    BUILD_HOUSE,
+    BUILD_BARRACKS,
+    BUILD_MARKET,
+    BUILD_MILL,
+    BUILD_LUMBER_CAMP,
+    BUILD_MINING_CAMP,
+    BUILD_BLACKSMITH,
+    GATHER_FOOD,
+    GATHER_WOOD,
+    GATHER_GOLD,
+    ADVANCE_FEUDAL,
+    ADVANCE_CASTLE,
+    ASSIGN_VILLAGER,
+    RESEARCH_TECH
+}
