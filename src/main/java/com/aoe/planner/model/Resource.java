@@ -47,6 +47,6 @@ public class Resource {
     
     @Override
     public String toString() {
-        return String.format("Resource{F:%d, W:%d, G:%d}", food, wood, gold);
+        return String.format("Resource{Food: %d, Wood: %d, Gold: %d}", food, wood, gold);
     }
 }

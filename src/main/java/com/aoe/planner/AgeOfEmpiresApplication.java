@@ -8,7 +8,6 @@ import com.aoe.planner.util.Metrics;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
 import java.util.*;
 
 @SpringBootApplication
@@ -17,7 +16,7 @@ public class AgeOfEmpiresApplication implements CommandLineRunner {
     public static void main(String[] args) {
         SpringApplication.run(AgeOfEmpiresApplication.class, args);
     }
-    
+
     @Override
     public void run(String... args) throws Exception {
         System.out.println("==============================================");
@@ -48,15 +47,15 @@ public class AgeOfEmpiresApplication implements CommandLineRunner {
         GameState optimalState = simulator.getState();
         boolean success = optimalState.hasReachedCastleAge() && 
                          optimalState.getCurrentTime() <= 900;
-        
+
+        Metrics optimalMetrics = new Metrics(optimalState);
+
         System.out.println("\n--- RESULTADO PLAN ÓPTIMO ---");
         System.out.println("Estado: " + (success ? "✓ ÉXITO" : "✗ FALLÓ"));
-        System.out.println("Tiempo: " + optimalState.getCurrentTime() + "s (" + 
-                         String.format("%.2f", optimalState.getCurrentTime()/60.0) + " min)");
+        System.out.println("Tiempo: " + optimalState.getCurrentTime() + "s (" + optimalMetrics.formatTime(optimalState.getCurrentTime())  + ")");
         System.out.println("Edad: " + optimalState.getCurrentAge().getDisplayName());
         System.out.println("Recursos finales: " + optimalState.getResources());
-        
-        Metrics optimalMetrics = new Metrics(optimalState);
+
         optimalMetrics.print();
         /*
         // FASE 3: Comparar con builds profesionales
@@ -78,7 +77,7 @@ public class AgeOfEmpiresApplication implements CommandLineRunner {
         System.out.println("\n==============================================");
         System.out.println("  RESUMEN FINAL");
         System.out.println("==============================================");
-        System.out.println("Plan CP-SAT (óptimo): " + optimalState.getCurrentTime() + "s");
+        System.out.println("Plan CP-SAT (óptimo): " + optimalMetrics.formatTime(optimalState.getCurrentTime()) + "s");
         System.out.println("Objetivo cumplido: " + (success ? "✓ SÍ" : "✗ NO"));
         System.out.println("==============================================");
     }
