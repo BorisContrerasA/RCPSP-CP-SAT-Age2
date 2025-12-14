@@ -28,7 +28,7 @@ public class RCPSPModel {
      */
     public void buildModel() {
         // 1. Crear aldeanos 1–25 encadenados (TC exclusivo)
-        createVillagerChain(25);
+        createVillagerChain(13);
 
         // 2. Construir 2 casas
         createHouses(2);
@@ -77,7 +77,7 @@ public class RCPSPModel {
             Task house = new Task(
                     "house_" + i,
                     TaskType.BUILD_HOUSE,
-                    25,
+                    15,
                     new Resource(0, 30, 0),   // 30 madera (aprox)
                     false
             );
@@ -181,7 +181,7 @@ public class RCPSPModel {
         );
         researchArado.addPredecessor(feudalTask.getId());
         researchArado.addPredecessor("mill");
-        researchArado.addPredecessor("villager_15");  // tener economía mínima
+        researchArado.addPredecessor("villager_12");  // tener economía mínima
         graph.addTask(researchArado);
 
         // Sierra Doble: +20% madera
@@ -195,7 +195,7 @@ public class RCPSPModel {
         );
         researchSierra.addPredecessor(feudalTask.getId());
         researchSierra.addPredecessor("lumber_camp");
-        researchSierra.addPredecessor("villager_15");
+        researchSierra.addPredecessor("villager_12");
         graph.addTask(researchSierra);
        
     }
@@ -215,7 +215,7 @@ public class RCPSPModel {
 
         castle.addPredecessor("market");
         castle.addPredecessor("blacksmith");
-        castle.addPredecessor("villager_25");
+        castle.addPredecessor("villager_13");
 
         graph.addTask(castle);
     }
