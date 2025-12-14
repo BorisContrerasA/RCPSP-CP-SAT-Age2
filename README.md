@@ -19,6 +19,7 @@ cd RCPSP-CP-SAT-Age2
 ## 3. Construir la imagen Docker
 
 > La imagen incluye Java 17 y compila automáticamente el proyecto.
+> Construir la imagen en Ubuntu 22.04.5 LTS.
 
 ```
 docker build -t rcpsp-cp-sat .
